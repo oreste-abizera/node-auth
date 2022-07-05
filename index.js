@@ -2,6 +2,7 @@ const { Swaggiffy } = require("swaggiffy");
 const dotenv = require("dotenv");
 const express = require("express");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 // import routes
 const authRoutes = require("./routes/auth.routes");
@@ -13,6 +14,7 @@ connectDB();
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // routes
 app.get("/", (req, res) => {

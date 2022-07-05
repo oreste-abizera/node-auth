@@ -18,7 +18,9 @@
     },
     "host": "localhost:8000",
     "basePath": "/",
-    "schemes": ["http"],
+    "schemes": [
+      "http"
+    ],
     "securityDefinitions": {
       "Bearer": {
         "type": "apiKey",
@@ -29,7 +31,9 @@
     "paths": {
       "/api/v1/auth/register": {
         "post": {
-          "tags": ["Auth"],
+          "tags": [
+            "Auth"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -42,8 +46,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -57,14 +65,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/auth/login": {
         "post": {
-          "tags": ["Auth"],
+          "tags": [
+            "Auth"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -77,8 +89,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -92,14 +108,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/add": {
         "post": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -112,8 +132,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -127,19 +151,27 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts": {
         "get": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "200": {
               "description": "OK",
@@ -165,14 +197,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/{postId}/like": {
         "post": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -191,8 +227,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -206,14 +246,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/{postId}/dislike": {
         "post": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -232,8 +276,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -247,14 +295,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/{postId}": {
         "get": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -265,8 +317,12 @@
               "type": "string"
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "200": {
               "description": "OK",
@@ -292,14 +348,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/{postId}/update": {
         "put": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -318,8 +378,12 @@
               }
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "201": {
               "description": "Created",
@@ -333,14 +397,18 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
       },
       "/api/v1/posts/{postId}/delete": {
         "delete": {
-          "tags": ["Posts"],
+          "tags": [
+            "Posts"
+          ],
           "summary": "",
           "description": "",
           "parameters": [
@@ -351,8 +419,12 @@
               "type": "string"
             }
           ],
-          "consumes": ["application/json"],
-          "produces": ["application/json"],
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
           "responses": {
             "200": {
               "description": "OK",
@@ -372,7 +444,9 @@
           },
           "security": [
             {
-              "Bearer": ["global"]
+              "Bearer": [
+                "global"
+              ]
             }
           ]
         }
