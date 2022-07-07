@@ -1,8 +1,10 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const ErrorResponse = require("../utils/ErrorResponse");
+const asyncHandler = require("./async");
 
 // Protect routes
-exports.protect = async (req, res, next) => {
+exports.protect = asyncHandler(async (req, res, next) => {
   let token;
   if (
     req.headers.authorization &&
@@ -12,10 +14,7 @@ exports.protect = async (req, res, next) => {
     token = req.headers.authorization.split(" ")[1];
     // Make sure token exists
     if (!token) {
-      return res.json({
-        success: false,
-        message: "No Token Provided",
-      });
+      return next(new ErrorResponse("No Token Provided", 400));
     }
 
     try {
@@ -32,9 +31,6 @@ exports.protect = async (req, res, next) => {
       });
     }
   } else {
-    return res.json({
-      success: false,
-      message: "No Token Provided",
-    });
+    return next(new ErrorResponse("No Token Provided", 400));
   }
-};
+});

@@ -6,13 +6,13 @@ const { registerSchema } = require("swaggiffy");
 const UserSchema = new mongoose.Schema({
   names: {
     type: String,
-    required: true,
-    minlength: 3,
-    maxlength: 255,
+    required: [true, "Names are required"],
+    minlength: [3, "Names should be at least 3 characters"],
+    maxlength: [255, "Names should not be greater than 255 characters"],
   },
   email: {
     type: String,
-    required: true,
+    required: [true, "Email is required"],
     minlength: 3,
     maxlength: 255,
     unique: true,

@@ -8,6 +8,9 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth.routes");
 const postsRoutes = require("./routes/posts.routes");
 
+//Error Handler middleware
+const ErrorHandler = require("./middleware/error");
+
 dotenv.config({ path: "./config/config.env" });
 connectDB();
 
@@ -23,6 +26,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/posts", postsRoutes);
+
+app.use(ErrorHandler);
 
 const PORT = process.env.PORT || 8000;
 
