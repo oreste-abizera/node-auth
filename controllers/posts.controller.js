@@ -18,7 +18,9 @@ module.exports.addPost = asyncHandler(async (req, res, next) => {
   const { title, content } = req.body;
   let picture;
   if (req.file) {
-    const result = await cloudinary.v2.uploader.upload(req.file.path);
+    const result = await cloudinary.v2.uploader.upload(req.file.path, {
+      folder: "urubuga",
+    });
     picture = {
       image_url: result.url,
       public_id: result.public_id,
