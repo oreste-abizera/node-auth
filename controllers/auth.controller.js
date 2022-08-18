@@ -37,12 +37,12 @@ module.exports.register = asyncHandler(async (req, res, next) => {
 });
 
 module.exports.login = asyncHandler(async (req, res, next) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  const user = await User.findOne({ username });
+  const user = await User.findOne({ email });
   if (!user) {
     return next(
-      new ErrorResponse(`User with username ${username} does not exist`, 400)
+      new ErrorResponse(`User with email ${email} does not exist`, 400)
     );
   }
 

@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
 
 // import routes
 const authRoutes = require("./routes/auth.routes");
@@ -18,6 +20,15 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+
+const storage = multer.diskStorage({
+  destination: path.join(__dirname, "public/uploads"),
+  filename: (req, file, cb) => {
+    cb(null, new Date().getTime() + path.extname(file.originalname));
+  },
+});
+app.use(multer({ storage }).single("image"));
 
 // routes
 app.get("/", (req, res) => {
