@@ -23,6 +23,7 @@ module.exports.addPost = asyncHandler(async (req, res, next) => {
       image_url: result.url,
       public_id: result.public_id,
     };
+    await fs.unlink(req.file.path);
   }
   const user = req.user;
   let post = await Post.create({
