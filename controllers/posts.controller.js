@@ -1,15 +1,34 @@
 const asyncHandler = require("../middleware/async");
 const Post = require("../models/Post");
-const { post } = require("../routes/posts.routes");
 const ErrorResponse = require("../utils/errorResponse");
 const removeElement = require("../utils/removeElement");
+const cloudinary = require("cloudinary");
+const fs = require("fs-extra");
+
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 module.exports.addPost = asyncHandler(async (req, res, next) => {
   const { title, content } = req.body;
+  let picture;
+  if (req.file) {
+    const result = await cloudinary.v2.uploader.upload(req.file.path);
+    picture = {
+      image_url: result.url,
+      public_id: result.public_id,
+    };
+  }
   const user = req.user;
   let post = await Post.create({
     title,
     content,
+    picture,
     author: user._id,
     likes: [],
   });

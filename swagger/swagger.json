@@ -490,6 +490,9 @@
             "type": "string",
             "example": "string"
           },
+          "picture": {
+            "type": "object"
+          },
           "author": {
             "type": "string",
             "example": "507f1f77bcf86cd799439011",

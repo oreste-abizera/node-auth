@@ -14,6 +14,13 @@ const PostSchema = new mongoose.Schema({
     minlength: 3,
     maxlength: 255,
   },
+  picture: {
+    type: {
+      image_url: String,
+      public_id: String,
+    },
+    maxlength: 255,
+  },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
